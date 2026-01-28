@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+
+:root {
+  /* Primary Colors */
+  --primary-pink: #FFE5F1;
+  --primary-pink-dark: #FFC4E1;
+  --primary-purple: #D946EF;
+  --primary-purple-dark: #C026D3;
+  --primary-lavender: #E9D5FF;
+  --primary-lavender-light: #F3E8FF;
+  
+  /* Secondary Colors */
+  --secondary-blue: #93C5FD;
+  --secondary-blue-light: #DBEAFE;
+  --secondary-blue-dark: #3B82F6;
+  
+  /* Neutral Colors */
+  --neutral-dark: #0a0a0a;
+  --neutral-dark-navy: #0F172A;
+  --neutral-white: #FFFFFF;
+  --neutral-off-white: #F8FAFC;
+  --neutral-gray: #64748B;
+  --neutral-gray-light: #CBD5E1;
+  
+  /* Background */
+  --background: #FFFFFF;
+  --foreground: #0F172A;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0F172A;
+    --foreground: #F8FAFC;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .bg-gradient-pink {
+    background: linear-gradient(135deg, #FFE5F1 0%, #FFC4E1 100%);
+  }
+  
+  .bg-gradient-purple {
+    background: linear-gradient(135deg, #F3E8FF 0%, #E9D5FF 100%);
+  }
+  
+  .bg-gradient-blue {
+    background: linear-gradient(135deg, #DBEAFE 0%, #93C5FD 100%);
+  }
+  
+  .bg-gradient-pink-purple {
+    background: linear-gradient(135deg, #FFE5F1 0%, #E9D5FF 100%);
+  }
+}
+
+@layer base {
+  body {
+    @apply font-sans;
+    background: linear-gradient(
+      135deg,
+      var(--color-soft-pink),
+      var(--color-soft-purple),
+      var(--color-soft-peach)
+    );
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+  }
+
+  :root {
+    --color-soft-pink: #FFD1DC;
+    --color-soft-purple: #E0BBE4;
+    --color-soft-peach: #FFDAC1;
+  }
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+  }
+
+
