@@ -90,7 +90,7 @@ const ArticleModal: React.FC<ArticleModalProps> = ({
         </p>
         <div
           className="prose prose-lg dark:prose-invert max-w-none text-neutral-dark-navy dark:text-neutral-white"
-          dangerouslySetInnerHTML={{ __html: article.content_html || article.content_text }}
+          dangerouslySetInnerHTML={{ __html:  article.content_text }}
         />
       </div>
     </div>
