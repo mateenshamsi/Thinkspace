@@ -3,11 +3,7 @@
 import React, { useState } from 'react';
 import Header from "../components/layout/Header";
 import HeroSection from "../components/sections/HeroSection";
-import CategoryPills from "../components/sections/CategoryPills";
 import LatestArticles from "../components/sections/LatestArticles";
-import FeaturedBlogs from "../components/sections/FeaturedBlogs";
-import TopicsTags from "../components/sections/TopicsTags";
-import NewsletterCTA from "../components/sections/NewsletterCTA";
 import ArticleModal from "../components/ui/ArticleModal";
 import { Blog } from "../lib/api";
 
@@ -30,11 +26,8 @@ export default function Home() {
       <Header />
       <main className="flex-grow">
         <HeroSection />
-        {/* <CategoryPills /> */}
-        <LatestArticles onArticleClick={handleArticleClick} />
-        {/* <FeaturedBlogs onArticleClick={handleArticleClick} />
-        <TopicsTags /> */}
-        {/* <NewsletterCTA /> */}
+        <LatestArticles />
+        
       </main>
       <ArticleModal
         article={selectedArticle}

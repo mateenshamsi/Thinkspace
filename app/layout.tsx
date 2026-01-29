@@ -14,7 +14,7 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Blogify - A Modern Tech Blog",
+  title: "ThinkSpace - A Modern Tech Blog",
   description:
     "A modern editorial SaaS blog design built with Next.js, TypeScript, and Tailwind CSS.",
 };

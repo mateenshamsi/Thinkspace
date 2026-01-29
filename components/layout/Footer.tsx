@@ -9,10 +9,10 @@ const Footer = () => {
         {/* Column 1: Logo and Description */}
         <div className="col-span-1">
           <Link href="/" className="text-2xl font-bold text-[#c2c4c0] mb-4 block">
-            Blogify
+            ThinkSpace
           </Link>
           <p className="text-[#c2c4c0] opacity-70 text-sm mb-4">
-            Blogify is a vibrant blog website where conversations come alive. Our platform fosters meaningful discussions, sharing ideas, and inspiring stories.
+            ThinkSpace is a vibrant blog website where conversations come alive. Our platform fosters meaningful discussions, sharing ideas, and inspiring stories.
           </p>
           {/* Social Icons (Placeholder) */}
           <div className="flex space-x-4 text-neutral-gray dark:text-neutral-gray-light">

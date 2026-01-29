@@ -5,6 +5,7 @@ export interface Blog {
   content_text: string;
   photo_url: string;
   category: string;
+  content_html?: string;
   created_at: string;
   updated_at: string;
   user_id: number;
@@ -21,6 +22,7 @@ export async function getBlogPosts(offset: number = 0, limit: number = 10): Prom
     title: blog.title,
     description: blog.description,
     content_text: blog.content_text,
+    content_html: blog.content_html,
     photo_url: blog.photo_url,
     category: blog.category,
     created_at: new Date(blog.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),

@@ -17,7 +17,7 @@ const LatestArticles: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   // Get search state from context
-  const { searchQuery, selectedCategory, setSelectedCategory } = useSearch();
+  const { searchQuery, selectedCategory, setSelectedCategory,setSearchQuery } = useSearch();
 
   const handleArticleClick = (article: Blog) => {
     setSelectedBlog(article);

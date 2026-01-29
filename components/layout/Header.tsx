@@ -13,7 +13,7 @@ const Header = () => {
       <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center text-2xl font-bold text-neutral-dark-navy dark:text-neutral-off-white">
-          Blogify
+          ThinkSpace
         </Link>
 
         {/* Navigation */}
