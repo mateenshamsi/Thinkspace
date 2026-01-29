@@ -3,6 +3,7 @@ import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "../components/ThemeProvider";
 import Footer from "../components/layout/Footer";
+import { SearchProvider } from "@/contexts/SearchContext";
 
 const openSans = Open_Sans({
   subsets: ["latin"],
@@ -28,15 +29,10 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="font-sans antialiased bg-background text-foreground flex flex-col min-h-screen">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+        <SearchProvider>
           {children}
           <Footer />
-        </ThemeProvider>
+        </SearchProvider>
       </body>
     </html>
   );

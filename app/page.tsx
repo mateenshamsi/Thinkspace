@@ -30,10 +30,10 @@ export default function Home() {
       <Header />
       <main className="flex-grow">
         <HeroSection />
-        <CategoryPills />
+        {/* <CategoryPills /> */}
         <LatestArticles onArticleClick={handleArticleClick} />
-        <FeaturedBlogs onArticleClick={handleArticleClick} />
-        <TopicsTags />
+        {/* <FeaturedBlogs onArticleClick={handleArticleClick} />
+        <TopicsTags /> */}
         {/* <NewsletterCTA /> */}
       </main>
       <ArticleModal
