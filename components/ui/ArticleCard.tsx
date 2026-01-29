@@ -23,10 +23,11 @@ const ArticleCard: React.FC<ArticleCardProps> = ({ article, onClick }) => {
       <div className="relative h-48 w-full">
         <Image
           src={article.image}
-          alt={article.title}
-          layout="fill"
-          objectFit="cover"
-          className="rounded-t-xl transition-transform duration-300 group-hover:scale-105"
+          alt={`${article.title} - Article cover image`}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="rounded-t-xl transition-transform duration-300 group-hover:scale-105 object-cover"
+          priority={false}
         />
         <div className="absolute top-3 left-3">
           <CategoryBadge category={article.category} />

@@ -75,9 +75,11 @@ const ArticleModal: React.FC<ArticleModalProps> = ({
           <div className="relative w-full h-60 md:h-80 rounded-xl overflow-hidden mb-6">
             <Image
               src={article.photo_url}
-              alt={article.title}
-              layout="fill"
-              objectFit="cover"
+              alt={`${article.title} - Blog post featured image`}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 100vw"
+              className="object-cover"
+              priority={false}
             />
           </div>
         )}

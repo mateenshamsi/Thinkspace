@@ -101,9 +101,11 @@ const BlogModal: React.FC<BlogModalProps> = ({ blog, isOpen, onClose }) => {
           <div className="relative w-full h-64 md:h-80 bg-gray-200 dark:bg-neutral-dark-navy">
             <Image
               src={blog.photo_url}
-              alt={blog.title}
+              alt={`${blog.title} - Blog article featured image`}
               fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 100vw"
               className="w-full h-full object-cover"
+              priority={false}
             />
           </div>
 
