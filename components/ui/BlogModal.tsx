@@ -10,7 +10,6 @@ interface BlogModalProps {
 }
 
 const BlogModal: React.FC<BlogModalProps> = ({ blog, isOpen, onClose }) => {
-  // Handle ESC key press
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && isOpen) {
@@ -29,21 +28,17 @@ const BlogModal: React.FC<BlogModalProps> = ({ blog, isOpen, onClose }) => {
     };
   }, [isOpen, onClose]);
 
-  // Format content_text to match content_html structure
   const formatTextContent = (text: string) => {
     const lines = text.split('\n').filter(line => line.trim());
     
     return lines.map((line, index) => {
       const trimmedLine = line.trim();
-      
-      // Check if line looks like a heading (shorter, no periods at end, capitalized)
       const isHeading = 
         trimmedLine.length > 0 &&
         trimmedLine.length < 80 &&
         !trimmedLine.endsWith('.') &&
         !trimmedLine.endsWith(',') &&
         trimmedLine[0] === trimmedLine[0].toUpperCase() &&
-        // Check if next line exists and is a paragraph (contains periods)
         (index < lines.length - 1 && lines[index + 1].includes('.'));
       
       if (isHeading) {
@@ -78,15 +73,12 @@ const BlogModal: React.FC<BlogModalProps> = ({ blog, isOpen, onClose }) => {
       aria-modal="true"
       aria-labelledby="modal-title"
     >
-      {/* Backdrop */}
       <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
 
-      {/* Modal Content */}
       <div
         className="relative z-50 w-full max-w-4xl max-h-[90vh] bg-white dark:bg-neutral-dark rounded-lg shadow-2xl overflow-hidden mx-4"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Close Button */}
         <button
           onClick={onClose}
           className="absolute right-4 top-4 z-10 p-2 rounded-full bg-white/80 dark:bg-neutral-dark/80 hover:bg-white dark:hover:bg-neutral-dark-navy transition-colors shadow-lg"
@@ -95,9 +87,7 @@ const BlogModal: React.FC<BlogModalProps> = ({ blog, isOpen, onClose }) => {
           <X className="h-5 w-5 text-gray-700 dark:text-gray-300" />
         </button>
 
-        {/* Scrollable Content */}
         <div className="overflow-y-auto max-h-[90vh]">
-          {/* Header Image */}
           <div className="relative w-full h-64 md:h-80 bg-gray-200 dark:bg-neutral-dark-navy">
             <Image
               src={blog.photo_url}
@@ -109,9 +99,7 @@ const BlogModal: React.FC<BlogModalProps> = ({ blog, isOpen, onClose }) => {
             />
           </div>
 
-          {/* Content */}
           <div className="p-6 md:p-8">
-            {/* Category and Meta Info */}
             <div className="flex flex-wrap items-center gap-3 text-sm text-gray-600 dark:text-gray-400 mb-4">
               <span className="bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 px-3 py-1 rounded-full font-medium">
                 {blog.category}
@@ -126,7 +114,6 @@ const BlogModal: React.FC<BlogModalProps> = ({ blog, isOpen, onClose }) => {
               </span>
             </div>
 
-            {/* Title */}
             <h2
               id="modal-title"
               className="text-3xl md:text-4xl font-bold text-neutral-dark-navy dark:text-neutral-white mb-4 leading-tight"
@@ -134,12 +121,10 @@ const BlogModal: React.FC<BlogModalProps> = ({ blog, isOpen, onClose }) => {
               {blog.title}
             </h2>
 
-            {/* Description */}
             <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
               {blog.description}
             </p>
 
-            {/* Blog Content */}
             <div className="prose prose-lg dark:prose-invert max-w-none">
               {blog.content_html ? (
                 <div

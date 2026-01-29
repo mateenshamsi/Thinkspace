@@ -11,11 +11,20 @@ export interface Blog {
   user_id: number;
 }
 
-export async function getBlogPosts(offset: number = 0, limit: number = 10): Promise<Blog[]> {
-  const res = await fetch(`https://api.slingacademy.com/v1/sample-data/blog-posts?offset=${offset}&limit=${limit}`);
+export async function getBlogPosts(
+  offset: number = 0,
+  limit: number = 10
+): Promise<Blog[]> {
+  const API_URL = `https://api.slingacademy.com/v1/sample-data/blog-posts?offset=${offset}&limit=${limit}`;
+
+  const res = await fetch(API_URL, {
+    next: { revalidate: 3600 }, // revalidate data every hour
+  });
+
   if (!res.ok) {
     throw new Error(`Failed to fetch blog posts: ${res.statusText}`);
   }
+
   const data = await res.json();
   return data.blogs.map((blog: any) => ({
     id: blog.id,
@@ -25,7 +34,7 @@ export async function getBlogPosts(offset: number = 0, limit: number = 10): Prom
     content_html: blog.content_html,
     photo_url: blog.photo_url,
     category: blog.category,
-    created_at: new Date(blog.created_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }),
+    created_at: new Date(blog.created_at).toISOString(),
     updated_at: blog.updated_at,
     user_id: blog.user_id,
   }));

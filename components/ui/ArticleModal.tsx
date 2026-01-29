@@ -26,7 +26,7 @@ const ArticleModal: React.FC<ArticleModalProps> = ({
 
     if (isOpen) {
       document.addEventListener('keydown', handleEscape);
-      document.body.style.overflow = 'hidden'; // Prevent scrolling the background
+      document.body.style.overflow = 'hidden';
     } else {
       document.removeEventListener('keydown', handleEscape);
       document.body.style.overflow = '';
@@ -43,12 +43,12 @@ const ArticleModal: React.FC<ArticleModalProps> = ({
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-neutral-dark-navy bg-opacity-75 p-4"
-      onClick={onClose} // Close when clicking outside the modal content
+      onClick={onClose}
     >
       <div
         ref={modalRef}
         className="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-2xl bg-neutral-white p-6 shadow-medium dark:bg-neutral-dark dark:bg-opacity-50 transform scale-95 opacity-0 transition-all duration-300 ease-out data-[state=open]:scale-100 data-[state=open]:opacity-100"
-        onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the modal content
+        onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
@@ -79,7 +79,7 @@ const ArticleModal: React.FC<ArticleModalProps> = ({
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 100vw"
               className="object-cover"
-              priority={false}
+              priority={true}
             />
           </div>
         )}
