@@ -1,95 +1,114 @@
 Lighthouse Images 
 ![alt text](/public/LighthouseImage.png)
+SEO Strategy
+Meta Tags Implemented & Rationale
 
+The application uses Next.js App Router metadata API to define SEO-critical meta tags at the layout and page level.
 
-🔍 SEO Strategy
-Meta Tags Implementation
+Title & Description
 
-The application uses Next.js App Router Metadata API to manage SEO-relevant meta tags at both layout and page levels.
+Implemented per route to avoid duplicate metadata.
 
-Title & Meta Description
+Optimized for clarity and keyword relevance rather than stuffing.
 
-Defined per route to prevent duplication.
+Open Graph (OG) Tags
 
-Written to reflect page intent and improve search relevance.
+Added to ensure rich previews on social platforms (Twitter).
 
-Open Graph Metadata
-
-Enables rich previews on social platforms such as LinkedIn and Twitter.
+Improves CTR when links are shared.
 
 Robots & Sitemap
 
-robots.txt is configured to allow indexing of public routes while blocking internal and non-public paths.
+robots.txt is configured to allow indexing of public pages while blocking non-indexable routes (e.g. APIs, dashboards).
 
-sitemap.xml is auto-generated to improve crawl efficiency and indexing accuracy.
+sitemap.xml is auto-generated to help search engines discover all indexable routes efficiently.
+
+Why this matters:
+Without proper metadata, even a well-built app is invisible to search engines. This setup ensures predictable indexing and shareability.
 
 Semantic HTML Structure
 
-The UI follows semantic HTML best practices to improve accessibility and SEO.
+The UI is built using semantic HTML elements instead of div-heavy layouts:
 
-<header> for global navigation
+<header> for navigation and branding
 
-<main> for core page content
+<main> for primary page content
 
 <section> and <article> for content grouping
 
-<footer> for shared site information
+<footer> for site-wide information
 
-Heading hierarchy is strictly enforced:
+Headings (h1–h3) follow a logical hierarchy:
 
-Single <h1> per page
+One h1 per page (primary topic)
 
-Logical use of <h2> and <h3> for subsections
+Supporting sections use h2 and h3
 
-Image Optimization
+Why this matters:
+Semantic HTML improves accessibility, SEO crawlability, and content clarity for both users and search engines.
 
-Images are optimized using the Next.js Image component.
+Image Optimization Strategy
 
-Automatic responsive sizing
+Images are optimized using Next.js Image component:
+
+Automatic resizing based on device viewport
 
 Lazy loading by default
 
-WebP format where supported
+Modern formats (WebP) when supported
 
-Explicit width and height to avoid layout shifts
+Explicit width and height to prevent layout shifts (CLS)
 
-This ensures better Core Web Vitals and faster load times.
+Why this matters:
+Unoptimized images are one of the fastest ways to destroy page performance and Core Web Vitals.
 
 Performance Optimizations
 
-Several performance-focused techniques were applied:
+Key performance-focused decisions include:
 
-Use of React Server Components to reduce client-side JavaScript
+Server Components to reduce client-side JS
 
-Dynamic imports for code splitting
+Code splitting via dynamic imports where applicable
 
-Minimal client-side hydration
+Minimal client components — only used where interactivity is required
 
-Optimized font loading using next/font
+Optimized fonts with next/font to avoid render-blocking
 
-🔎 Search and Filter Implementation
+Result: faster initial load, better Lighthouse scores, and improved UX.
 
-The search and filtering system is designed to be scalable and performant.
+🔎 Search & Filter Implementation
 
-Client-side search with debounced input handling
+The search and filter functionality is designed to be:
 
-Normalized data comparison for consistent results
+Client-side and responsive
 
-Decoupled filtering logic to improve maintainability
+Debounced to avoid unnecessary re-renders
 
-This approach ensures responsiveness even as data size grows.
+Based on normalized data (lowercasing, trimming, token matching)
+
+Filtering logic is isolated from UI components to keep:
+
+State predictable
+
+Components reusable
+
+Debugging simple
+
+This approach scales well as the dataset grows and avoids tight coupling between UI and business logic.
 
 ⚠️ Challenges Faced
 
-Managing SEO effectively within the App Router architecture
+Balancing SEO with modern App Router patterns
+(especially metadata handling and dynamic routes)
 
-Balancing interactivity with minimal client-side JavaScript
+Preventing overuse of client components while keeping UI interactive
 
-Designing performant filtering logic without overengineering
+Designing filters that are performant without premature optimization
 
-Optimizing images while maintaining visual quality
+Ensuring image performance without sacrificing visual quality
 
-Each challenge was addressed through deliberate architectural decisions rather than quick fixes.
+Each challenge was addressed with measured trade-offs, not hacks.
+
 
 🛠 Technologies Used
 
@@ -105,4 +124,4 @@ Next.js Metadata API
 
 Next.js Image Optimization
 
-Vercel
+Vercel (Deployment)
