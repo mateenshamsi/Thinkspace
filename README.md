@@ -1,5 +1,6 @@
 Lighthouse Images 
 ![alt text](/public/LighthouseImage.png)
+
 SEO Strategy
 Meta Tags Implemented & Rationale
 
