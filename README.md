@@ -1,7 +1,7 @@
 Lighthouse Images 
 ![alt text](/public/LighthouseImage.png)
 
-📘 Technical Overview
+
 🔍 SEO Strategy
 Meta Tags Implementation
 
