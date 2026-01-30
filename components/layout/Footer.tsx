@@ -59,7 +59,7 @@ const Footer: React.FC = () => {
             <li>
               <a
                 href="mailto:dummy@example.com"
-                className="hover:text-primary-purple dark:hover:text-primary-lavender transition-colors"
+                className="hover:text-primary-purple  transition-colors"
               >
                 dummy@example.com
               </a>
@@ -69,7 +69,7 @@ const Footer: React.FC = () => {
       </div>
 
       {/* Footer bottom */}
-      <div className="container mx-auto border-t border-neutral-gray-light dark:border-neutral-dark mt-8 pt-8 text-center text-sm text-[#c2c4c0] opacity-70">
+      <div className="container mx-auto border-t border-neutral-gray-light  mt-8 pt-8 text-center text-sm text-[#c2c4c0] opacity-70">
         <p>COPYRIGHT © {new Date().getFullYear()} THINKSPACE (Dummy Footer)</p>
       </div>
     </footer>

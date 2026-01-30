@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-
+/* 🔒 LIGHT MODE ONLY — VARIABLES NEVER CHANGE */
 :root {
   /* Primary Colors */
   --primary-pink: #FFE5F1;
@@ -9,12 +9,12 @@
   --primary-purple-dark: #C026D3;
   --primary-lavender: #E9D5FF;
   --primary-lavender-light: #F3E8FF;
-  
+
   /* Secondary Colors */
   --secondary-blue: #93C5FD;
   --secondary-blue-light: #DBEAFE;
   --secondary-blue-dark: #3B82F6;
-  
+
   /* Neutral Colors */
   --neutral-dark: #0a0a0a;
   --neutral-dark-navy: #0F172A;
@@ -22,17 +22,23 @@
   --neutral-off-white: #F8FAFC;
   --neutral-gray: #64748B;
   --neutral-gray-light: #CBD5E1;
-  
-  /* Background */
+
+  /* Background — FIXED */
   --background: #FFFFFF;
   --foreground: #0F172A;
+
+  /* Gradient Colors */
+  --color-soft-pink: #FFD1DC;
+  --color-soft-purple: #E0BBE4;
+  --color-soft-peach: #FFDAC1;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0F172A;
-    --foreground: #F8FAFC;
-  }
+/* 🚫 DARK MODE COMPLETELY REMOVED
+@media (prefers-color-scheme: dark) { ... }
+*/
+
+html {
+  color-scheme: light;
 }
 
 body {
@@ -43,28 +49,30 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Utilities */
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
-  
+
   .bg-gradient-pink {
     background: linear-gradient(135deg, #FFE5F1 0%, #FFC4E1 100%);
   }
-  
+
   .bg-gradient-purple {
     background: linear-gradient(135deg, #F3E8FF 0%, #E9D5FF 100%);
   }
-  
+
   .bg-gradient-blue {
     background: linear-gradient(135deg, #DBEAFE 0%, #93C5FD 100%);
   }
-  
+
   .bg-gradient-pink-purple {
     background: linear-gradient(135deg, #FFE5F1 0%, #E9D5FF 100%);
   }
 }
 
+/* Base styles */
 @layer base {
   body {
     @apply font-sans;
@@ -77,18 +85,10 @@ body {
     background-size: 400% 400%;
     animation: gradientAnimation 15s ease infinite;
   }
-
-  :root {
-    --color-soft-pink: #FFD1DC;
-    --color-soft-purple: #E0BBE4;
-    --color-soft-peach: #FFDAC1;
-  }
 }
 
 @keyframes gradientAnimation {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
-  }
-
-
+}

@@ -1,16 +1,17 @@
 
-
 import defaultTheme from "tailwindcss/defaultTheme";
 
+
 const config = {
-  darkMode: ["class"],
+ 
+
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  prefix: "",
+
   theme: {
     container: {
       center: true,
@@ -24,37 +25,36 @@ const config = {
         sans: ["var(--font-inter)", ...defaultTheme.fontFamily.sans],
         mono: ["var(--font-geist-mono)", ...defaultTheme.fontFamily.mono],
       },
+
+    
       colors: {
-        // Primary brand colors
         primary: {
-          pink: "var(--primary-pink)",
-          "pink-dark": "var(--primary-pink-dark)",
-          purple: "var(--primary-purple)",
-          "purple-dark": "var(--primary-purple-dark)",
-          lavender: "var(--primary-lavender)",
-          "lavender-light": "var(--primary-lavender-light)",
+          pink: "#ec4899",
+          "pink-dark": "#db2777",
+          purple: "#8b5cf6",
+          "purple-dark": "#7c3aed",
+          lavender: "#c4b5fd",
+          "lavender-light": "#ede9fe",
         },
-        // Secondary colors
         secondary: {
-          blue: "var(--secondary-blue)",
-          "blue-light": "var(--secondary-blue-light)",
-          "blue-dark": "var(--secondary-blue-dark)",
+          blue: "#3b82f6",
+          "blue-light": "#93c5fd",
+          "blue-dark": "#1d4ed8",
         },
-        // Neutral colors
         neutral: {
-          dark: "var(--neutral-dark)",
-          "dark-navy": "var(--neutral-dark-navy)",
-          white: "var(--neutral-white)",
-          "off-white": "var(--neutral-off-white)",
-          gray: "var(--neutral-gray)",
-          "gray-light": "var(--neutral-gray-light)",
+          dark: "#0f172a",
+          "dark-navy": "#020617",
+          white: "#ffffff",
+          "off-white": "#f8fafc",
+          gray: "#64748b",
+          "gray-light": "#e5e7eb",
         },
-        // Background and Foreground from global CSS variables
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        background: "#ffffff",
+        foreground: "#0f172a",
       },
     },
   },
+
   plugins: [],
 };
 
