@@ -17,11 +17,25 @@ interface ArticleCardProps {
   priority?: boolean;
 }
 
+const formatDate = (dateString: string) => {
+  const date = new Date(dateString);
+
+  if (isNaN(date.getTime())) return "Invalid date";
+
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+};
+
 const ArticleCard: React.FC<ArticleCardProps> = ({
   article,
   onClick,
   priority = false,
 }) => {
+  const formattedDate = formatDate(article.date);
+
   return (
     <div
       className="group relative block overflow-hidden rounded-xl bg-neutral-white shadow-soft transition-all duration-300 hover:shadow-medium dark:bg-neutral-dark dark:bg-opacity-50 cursor-pointer"
@@ -39,9 +53,6 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
           priority={priority}
         />
 
-        <div className="absolute top-3 left-3 z-10">
-          <CategoryBadge category={article.category} />
-        </div>
       </div>
 
       <div className="p-4">
@@ -55,7 +66,9 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
 
         <div className="flex items-center justify-between text-sm text-neutral-gray dark:text-neutral-gray-light">
           <span>By {article.author}</span>
-          <span>{article.date}</span>
+          <span className="whitespace-nowrap">
+            {formattedDate}
+          </span>
         </div>
       </div>
     </div>

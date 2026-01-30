@@ -3,8 +3,6 @@
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import React from "react";
-
-// Dynamically import heavy/interactive parts (future-proofing)
 const SocialIcons = dynamic(
   () => import("@/components/ui/SocialIcons"), // create this if you want animated or interactive icons later
   { ssr: false }
@@ -22,11 +20,9 @@ const Footer: React.FC = () => {
           <p className="text-[#c2c4c0] opacity-70 text-sm mb-4">
             A dummy blog footer for testing. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           </p>
-          {/* Interactive social icons loaded client-side */}
           <SocialIcons />
         </div>
 
-        {/* Column 2: Quick Links */}
         <div className="col-span-1">
           <h3 className="text-lg font-semibold text-[#c2c4c0] mb-4">Quick Links</h3>
           <ul className="space-y-2">
@@ -38,7 +34,6 @@ const Footer: React.FC = () => {
           </ul>
         </div>
 
-        {/* Column 3: Categories */}
         <div className="col-span-1">
           <h3 className="text-lg font-semibold text-[#c2c4c0] mb-4">Categories</h3>
           <ul className="space-y-2">
@@ -50,7 +45,6 @@ const Footer: React.FC = () => {
           </ul>
         </div>
 
-        {/* Column 4: Contact Info */}
         <div className="col-span-1">
           <h3 className="text-lg font-semibold text-[#c2c4c0] mb-4">Get In Touch</h3>
           <ul className="space-y-2 text-[#c2c4c0] opacity-70">
@@ -68,7 +62,6 @@ const Footer: React.FC = () => {
         </div>
       </div>
 
-      {/* Footer bottom */}
       <div className="container mx-auto border-t border-neutral-gray-light  mt-8 pt-8 text-center text-sm text-[#c2c4c0] opacity-70">
         <p>COPYRIGHT © {new Date().getFullYear()} THINKSPACE (Dummy Footer)</p>
       </div>

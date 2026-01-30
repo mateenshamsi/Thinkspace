@@ -15,8 +15,6 @@ const LatestArticles: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [selectedBlog, setSelectedBlog] = useState<Blog | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  // Get search state from context
   const { searchQuery, selectedCategory, setSelectedCategory,setSearchQuery } = useSearch();
 
   const handleArticleClick = (article: Blog) => {
@@ -29,7 +27,7 @@ const LatestArticles: React.FC = () => {
     setSelectedBlog(null);
   };
 
-  // Fetch articles on mount
+ 
   useEffect(() => {
     async function loadArticles() {
       try {
@@ -38,7 +36,7 @@ const LatestArticles: React.FC = () => {
         setArticles(data);
         setFilteredArticles(data);
         
-        // Extract unique categories
+       
         const uniqueCategories = Array.from(
           new Set(data.map((article) => article.category))
         ).sort();
@@ -53,18 +51,17 @@ const LatestArticles: React.FC = () => {
     loadArticles();
   }, []);
 
-  // Filter functionality - filters articles when searchQuery or selectedCategory changes
+ 
   useEffect(() => {
     let filtered = articles;
 
-    // Filter by category
     if (selectedCategory !== 'all') {
       filtered = filtered.filter(
         (article) => article.category === selectedCategory
       );
     }
 
-    // Filter by search query
+    
     if (searchQuery.trim() !== '') {
       const query = searchQuery.toLowerCase();
       filtered = filtered.filter((article) => {
@@ -115,13 +112,13 @@ const LatestArticles: React.FC = () => {
       
       </div>
 
-      {/* Category Filter */}
+    
       <div className="mb-6">
         <h3 className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-3">
           Filter by Category
         </h3>
         <div className="flex flex-wrap gap-2">
-          {/* All Categories Button */}
+    
           <button
             onClick={() => handleCategoryChange('all')}
             className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
@@ -133,7 +130,7 @@ const LatestArticles: React.FC = () => {
             All Categories
           </button>
 
-          {/* Individual Category Buttons */}
+     
           {categories.map((category) => (
             <button
               key={category}
@@ -150,7 +147,7 @@ const LatestArticles: React.FC = () => {
         </div>
       </div>
 
-      {/* Results count */}
+     
       <div className="mb-6 text-sm text-gray-600 dark:text-gray-400">
         {searchQuery || selectedCategory !== 'all' ? (
           <p>
@@ -162,9 +159,7 @@ const LatestArticles: React.FC = () => {
           <p>Showing <strong>{filteredArticles.length}</strong> articles</p>
         )}
       </div>
-
-      {/* No results message */}
-      {filteredArticles.length === 0 && (searchQuery || selectedCategory !== 'all') && (
+    {filteredArticles.length === 0 && (searchQuery || selectedCategory !== 'all') && (
         <div className="text-center py-12">
           <div className="bg-gray-100 dark:bg-gray-800 rounded-full p-4 inline-block mb-4">
             <svg
@@ -211,7 +206,6 @@ const LatestArticles: React.FC = () => {
         </div>
       )}
 
-      {/* Articles Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {filteredArticles.map((article) => (
           <ArticleCard
@@ -230,7 +224,6 @@ const LatestArticles: React.FC = () => {
         ))}
       </div>
 
-      {/* Blog Modal */}
       <BlogModal 
         blog={selectedBlog}
         isOpen={isModalOpen}

@@ -18,7 +18,7 @@ export async function getBlogPosts(
   const API_URL = `https://api.slingacademy.com/v1/sample-data/blog-posts?offset=${offset}&limit=${limit}`;
 
   const res = await fetch(API_URL, {
-    next: { revalidate: 3600 }, // revalidate data every hour
+    next: { revalidate: 3600 }, 
   });
 
   if (!res.ok) {
